@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPen - Blogging Platform</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #ff6347;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+        }
+        
+        /* Theme 1 */
+        body.theme-1 {
+            --primary-color: #333;
+            --secondary-color: #ff6347;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+        }
+
+        /* Theme 2 */
+        body.theme-2 {
+            --primary-color: #222;
+            --secondary-color: #007acc;
+            --background-color: #e0f7fa;
+            --text-color: #000;
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Post Creation Form */
+        .post-creation {
+            padding: 20px;
+            background: var(--background-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .post-creation label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .post-creation input[type="text"],
+        .post-creation textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .post-creation input[type="submit"] {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Theme Selector */
+        .theme-selector {
+            margin: 20px 0;
+        }
+
+        .theme-selector label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .theme-selector select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Social Media Sharing */
+        .social-share {
+            margin-top: 20px;
+        }
+
+        .social-share a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+            margin-right: 10px;
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        /* Analytics Section */
+        .analytics {
+            margin: 20px 0;
+            background: var(--background-color);
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .analytics h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        /* Analytics Placeholder */
+        .analytics .chart {
+            height: 200px;
+            background: #e0e0e0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PixelPen</h1>
+        <p>Empowering content creators with a seamless blogging experience</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Post Creation Section -->
+    <section class="post-creation">
+        <h2>Create/Edit Your Blog Post</h2>
+        <form>
+            <label for="title">Post Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10" required></textarea>
+
+            <input type="submit" value="Publish Post">
+        </form>
+    </section>
+
+    <!-- Theme Customization -->
+    <section class="theme-selector">
+        <label for="theme">Choose Your Theme:</label>
+        <select id="theme" onchange="changeTheme()">
+            <option value="theme-1">Default</option>
+            <option value="theme-2">Cool Blue</option>
+        </select>
+    </section>
+
+    <!-- Social Media Integration -->
+    <section class="social-share">
+        <h2>Share This Post:</h2>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+    </section>
+
+    <!-- Analytics Section -->
+    <section class="analytics">
+        <h2>Blog Performance Analytics</h2>
+        <div class="chart">Chart Placeholder</div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PixelPen. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function changeTheme() {
+            const theme = document.getElementById("theme").value;
+            document.body.className = theme;
+        }
+    </script>
+</body>
+</html>
