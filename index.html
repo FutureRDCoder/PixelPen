@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPen - Blogging Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top">Top</button>
+
+    <header>
+        <div class="container">
+            <h1>PixelPen</h1>
+            <p>Empowering content creators with a seamless blogging experience</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Welcome to PixelPen</h2>
+            <p>Your gateway to effortless blogging. Start creating, sharing, and engaging with your audience today!</p>
+            <a href="#get-started" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>PixelPen is a dynamic and user-friendly blogging platform for content creators, offering customizable templates and seamless publishing tools.</p>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2>Latest Posts</h2>
+            <div class="blog-post">
+                <h3>Post Title 1</h3>
+                <p>Short description of the post. <a href="#">Read more...</a></p>
+            </div>
+            <div class="blog-post">
+                <h3>Post Title 2</h3>
+                <p>Short description of the post. <a href="#">Read more...</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contactForm" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <input type="submit" value="Send Message">
+            </form>
+            <p id="formMessage"></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PixelPen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function () { scrollFunction(); };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const formMessage = document.getElementById('formMessage');
+
+            if (name === '' || email === '' || message === '') {
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Please fill out all fields.';
+            } else if (!validateEmail(email)) {
+                formMessage.style.color = 'red';
+                formMessage.textContent = 'Please enter a valid email address.';
+            } else {
+                formMessage.style.color = 'green';
+                formMessage.textContent = 'Message sent successfully!';
+                // Reset form
+                document.getElementById('contactForm').reset();
+            }
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+    </script>
+
+</body>
+
+</html>
